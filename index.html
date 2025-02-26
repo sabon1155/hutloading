@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HutLoading.com</title>
+    <style>
+        body {
+            background-color: black;
+            color: lime;
+            font-family: "Courier New", Courier, monospace;
+            padding: 20px;
+            text-align: center;
+        }
+        #terminal {
+            width: 90%;
+            max-width: 600px;
+            height: 300px;
+            border: 2px solid lime;
+            background-color: black;
+            padding: 10px;
+            overflow-y: auto;
+            margin: auto;
+            text-align: left;
+        }
+        input {
+            width: 100%;
+            background: black;
+            border: none;
+            color: lime;
+            font-size: 16px;
+            outline: none;
+            caret-color: lime;
+            margin-top: 5px;
+        }
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px red; }
+            50% { text-shadow: -2px -2px blue; }
+            100% { text-shadow: 2px 2px red; }
+        }
+        h1 {
+            animation: glitch 0.5s infinite alternate;
+        }
+    </style>
+</head>
+<body>
+    <h1>💀 Welcome to the Hacker Terminal 💀</h1>
+    <div id="terminal"></div>
+    <input type="text" id="command" placeholder="Type a command...">
+    
+    <audio id="background-audio" loop autoplay>
+        <source src="https://www.myinstants.com/media/sounds/horror-ambience.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        const terminal = document.getElementById("terminal");
+        const commandInput = document.getElementById("command");
+        const backgroundAudio = document.getElementById("background-audio");
+        
+        function addToTerminal(text) {
+            terminal.innerHTML += `<p>> ${text}</p>`;
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        function playSound(url) {
+            const audio = new Audio(url);
+            audio.play();
+        }
+    </script>
+</body>
+</html>
